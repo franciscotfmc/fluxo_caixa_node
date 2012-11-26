@@ -43,20 +43,18 @@ function logout(response, postData) {
 
 function principal(response, postData) {
   regExp = new RegExp("uid=(.*) ?");
+  
+  // get cookie id from the request
   uid = regExp.exec(postData.headers.cookie)[1];
 
+  // check if this cookie exists
   handler.get(uid, function(err, utils, sessions) {
     if(utils && utils.uid() === uid) {
        redirectTo(response, "principal.html");
     } else {
       redirectTo(response, "index.html");
     }
-    
   });
-  
-  
-
-  
 }
 
 function redirectTo(response, page) {
