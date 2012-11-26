@@ -1,10 +1,3 @@
-<?php
-  session_start();
-
-  if(isset($_SESSION['id']))
-    header("location: principal.php");
-?>
-
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -20,7 +13,7 @@
 
 			  var login = Ext.create('Ext.FormPanel', {
 				  labelWidth	 : 50,
-				  url			 : 'php/login.php?acao=login',
+				  url			 : '/login',
 				  frame		 : true,
 				  defaultType  : 'textfield',
 				  monitorValid : true,
@@ -74,7 +67,7 @@
 						  waitMsg 	: 'Autenticado no sistema',
 						  success     : function(){
 									  login.getForm().reset();
-									  var redirect = 'principal.php';
+									  var redirect = 'principal.html';
 									  window.location = redirect;
 						  },
 						  failure     : function(form, action){
