@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "dependencies": {
         "mongoose": "3.4.x",
-        "sessions": ">=0.0.2"
+        "sessions": ">=0.0.2",
+        "mime": "1.2.x"
     }
 }

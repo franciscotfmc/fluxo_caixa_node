@@ -3,7 +3,8 @@ var sys = require("sys"),
     url = require("url"),
     util = require('util'),
     path = require("path"),
-    fs = require("fs");
+    fs = require("fs"),
+    mime = require("mime");
 
 function route(handle, pathname, response, request) {
   util.log("About to route a request for " + pathname);
@@ -31,7 +32,7 @@ function route(handle, pathname, response, request) {
                 return;
             }
 
-            response.writeHeader(200, {"Content-Type": "text/html"});
+            response.writeHeader(200, {"Content-Type": mime.lookup(filename)});
             response.end(html);
         });
     });
