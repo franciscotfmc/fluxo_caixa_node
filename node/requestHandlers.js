@@ -1,5 +1,6 @@
 var querystring = require("querystring");
     fs = require('fs'),
+    path = require("path"),
     sessions = require("../node_modules/sessions/lib/sessions"),
     handler = new sessions();
 
@@ -8,7 +9,7 @@ function index(response, postData) {
 }
 
 function login(response, postData) {
-  
+
   if(postData.method === "POST") {
     var data = "";
 
@@ -30,8 +31,8 @@ function login(response, postData) {
           response.end();
         });
       } else {
-        response.writeHeader(500, {"Content-Type": "text/html"});  
-        response.end();  
+        response.writeHeader(500, {"Content-Type": "text/html"});
+        response.end();
       }
     });
   }
@@ -47,7 +48,7 @@ function logout(response, postData) {
 
 function principal(response, postData) {
   regExp = new RegExp("uid=(.*) ?");
-  
+
   // get cookie id from the request
   uid = regExp.exec(postData.headers.cookie)[1];
 
@@ -62,19 +63,19 @@ function principal(response, postData) {
 }
 
 function redirectTo(response, page) {
-  filename = "public/" + page;
-  fs.readFile(filename, function(err, html) {  
-    if(err) {  
-      response.writeHeader(500, {"Content-Type": "text/html"});  
-      response.end(err + "\n");  
+  var filename = path.join(__dirname, "/public/" + page);
+  fs.readFile(filename, function(err, html) {
+    if(err) {
+      response.writeHeader(500, {"Content-Type": "text/html"});
+      response.end(err + "\n");
       return;
-    } 
+    }
 
-    response.writeHeader(200, {"Content-Type": "text/html"});     
-    response.end(html);      
-  });          
+    response.writeHeader(200, {"Content-Type": "text/html"});
+    response.end(html);
+  });
 }
 
 exports.index = index;
 exports.login = login;
-exports.principal = principal
+exports.principal = principal;
