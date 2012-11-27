@@ -1,11 +1,12 @@
 var sys = require("sys"),
     http = require("http"),
     url = require("url"),
+    util = require('util'),
     path = require("path"),
     fs = require("fs");
 
 function route(handle, pathname, response, request) {
-  console.log("About to route a request for " + pathname);
+  util.log("About to route a request for " + pathname);
 
   if (typeof handle[pathname] === 'function') {
     handle[pathname](response, request);
@@ -16,7 +17,7 @@ function route(handle, pathname, response, request) {
     fs.exists(filename, function(exists) {
 
         if(!exists) {
-            console.log("File " + pathname + " not found");
+            util.log("File " + pathname + " not found");
 	        response.writeHeader(404, {"Content-Type": "text/html"});
 	        response.end("404 Not Found\n");
             return;
