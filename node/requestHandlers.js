@@ -3,6 +3,10 @@ var querystring = require("querystring");
     sessions = require("../node_modules/sessions/lib/sessions"),
     handler = new sessions();
 
+function index(response, postData) {
+  redirectTo(response, "index.html");
+}
+
 function login(response, postData) {
   
   if(postData.method === "POST") {
@@ -71,5 +75,6 @@ function redirectTo(response, page) {
   });          
 }
 
+exports.index = index;
 exports.login = login;
 exports.principal = principal

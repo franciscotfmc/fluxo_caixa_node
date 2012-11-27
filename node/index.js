@@ -3,7 +3,7 @@ var router = require("./router");
 var requestHandlers = require("./requestHandlers");
 
 var handle = {}
-handle["/"] = "index.html";
+handle["/"] = requestHandlers.index;
 handle["/login"] = requestHandlers.login
 handle["/principal.html"] = requestHandlers.principal
 
