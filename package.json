@@ -1,0 +1,8 @@
+{
+    "name": "fluxo_caixa_node",
+    "version": "1.0.0",
+    "dependencies": {
+        "mongoose": "*",
+        "sessions": "*"
+    }
+}
