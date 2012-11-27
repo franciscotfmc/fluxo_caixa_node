@@ -26,8 +26,6 @@ function login(response, postData) {
           if (err) {
             return response.end("session error");
           }
-
-          console.log("[%s] > %s", session.uid(), postData.url);
           response.end();
         });
       } else {
@@ -50,7 +48,12 @@ function principal(response, postData) {
   regExp = new RegExp("uid=(.*) ?");
 
   // get cookie id from the request
-  uid = regExp.exec(postData.headers.cookie)[1];
+  uid = regExp.exec(postData.headers.cookie);
+
+  if (uid === null)
+    redirectTo(response, "index.html");
+  else
+    uid = uid[1];
 
   // check if this cookie exists
   handler.get(uid, function(err, utils, sessions) {
