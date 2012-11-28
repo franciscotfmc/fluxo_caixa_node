@@ -1,22 +1,24 @@
-var ContaSchema = new Schema({
-  id        : ObjectId,
-  conta_id  : ObjectId,
-  nome      : String, 
+var mongoose = require('mongoose');
+
+var ContaSchema = new mongoose.Schema({
+  id        : mongoose.Schema.ObjectId,
+  conta_id  : mongoose.Schema.ObjectId,
+  nome      : String,
   flag      : Number
 });
 
-var FluxoSchema = new Schema({
-  id        : ObjectId,
-  conta_id  : ObjectId,
-  descricao : String, 
+var FluxoSchema = new mongoose.Schema({
+  id        : mongoose.Schema.ObjectId,
+  conta_id  : mongoose.Schema.ObjectId,
+  descricao : String,
   dt_fluxo  : Date,
   valor     : Number
 });
 
-var UsuarioSchema = new Schema({
-  id    : ObjectId,
+var UsuarioSchema = new mongoose.Schema({
+  id    : mongoose.Schema.ObjectId,
   nome  : String,
-  email : String, 
+  email : String,
   senha : String
 });
 
