@@ -71,7 +71,7 @@ Ext.define('FM.view.Viewport', {
         store: Ext.create('Ext.data.TreeStore', {
             proxy: {
                 type: 'ajax',
-                url: 'php/menu.php',
+                url: 'menu.json',
                 noCache : false,
                 actionMethods: {
                     read: 'POST'
