@@ -23,3 +23,7 @@ var UsuarioSchema = new Schema({
 var Conta = mongoose.model('Conta', ContaSchema);
 var Fluxo = mongoose.model('Fluxo', FluxoSchema);
 var Usuario = mongoose.model('Usuario', UsuarioSchema);
+
+export.Conta = Conta;
+export.Fluxo = Fluxo;
+export.Usuario = Usuario;
