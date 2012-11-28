@@ -10,8 +10,8 @@ Ext.define('FM.view.Viewport', {
         region: 'north',
         html: '<h1>Sistema de Fluxo de Caixa - FM 1.0 - <a id="logout" href="php/logout.php">Logout</a> </h1>',
         height: 45
-    }
-    ,{
+    },
+    {
         region:'west',
         border: false,
         split: true,
@@ -74,12 +74,12 @@ Ext.define('FM.view.Viewport', {
                 url: 'menu.json',
                 noCache : false,
                 actionMethods: {
-                    read: 'POST'
+                    read: 'GET'
                 }
             }
         })
-    }
-    ,{
+    },
+    {
         xtype: 'tabpanel',
         region: 'center',
         margins: '0 5 5 0',
