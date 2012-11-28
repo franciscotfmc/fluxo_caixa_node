@@ -4,6 +4,7 @@
     "dependencies": {
         "mongoose": "3.4.x",
         "sessions": ">=0.0.2",
-        "mime": "1.2.x"
+        "mime": "1.2.x",
+        "mysql": "2.0.x"
     }
 }
