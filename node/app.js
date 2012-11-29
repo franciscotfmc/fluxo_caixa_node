@@ -3,6 +3,7 @@ var express = require('express'),
     mongoStore = require('connect-mongoose')(express),
     usuarioController = require('./usuarioController'),
     contaController = require('./contaController'),
+    fluxoController = require('./fluxoController'),
     util = require('util');
 
 mongoose.connect('mongodb://localhost/fluxo_caixa_node');
@@ -40,6 +41,11 @@ app.post('/contas/list', contaController.list);
 app.post('/contas/create', contaController.create);
 app.post('/contas/update', contaController.update);
 app.post('/contas/delete', contaController._delete);
+
+app.post('/fluxos/list', fluxoController.list);
+app.post('/fluxos/create', fluxoController.create);
+app.post('/fluxos/update', fluxoController.update);
+app.post('/fluxos/delete', fluxoController._delete);
 
 app.listen(8000);
 util.log('Server started');

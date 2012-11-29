@@ -43,7 +43,7 @@ Ext.define('FM.view.fluxo.List' ,{
             flex: 1,
             renderer: function(value) {
                 var contasStore = Ext.getStore('Contas');
-                var record = contasStore.findRecord('id', value);
+                var record = contasStore.findRecord('_id', value);
                 if (record !== null)
                     return record.get('nome');
                 return '';

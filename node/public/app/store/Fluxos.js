@@ -8,10 +8,10 @@ Ext.define('FM.store.Fluxos', {
             simpleSortMode : true,
             type           : 'ajax',
             api            : {
-                read    : 'php/fluxos.php?acao=list',
-                create  : 'php/fluxos.php?acao=insert',
-                update  : 'php/fluxos.php?acao=update',
-                destroy : 'php/fluxos.php?acao=delete'
+                read    : 'fluxos/list',
+                create  : 'fluxos/create',
+                update  : 'fluxos/update',
+                destroy : 'fluxos/delete'
             },
         actionMethods : {
                 create : 'POST',
@@ -32,7 +32,6 @@ Ext.define('FM.store.Fluxos', {
         },
         extraParams :
         {
-            limit : 'limit',
             sort  : '_id',
             dir   : 'ASC',
             total : 'total'

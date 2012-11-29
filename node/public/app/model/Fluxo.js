@@ -3,11 +3,11 @@ Ext.define('FM.model.Fluxo', {
         idProperty  : '_id',
         fields :[{
             name : '_id',
-            type : 'int'
+            type : 'string'
         },
         {
             name : 'conta_id',
-            type : 'int'
+            type : 'string'
         },
         {
             name : 'descricao',
@@ -16,7 +16,7 @@ Ext.define('FM.model.Fluxo', {
         {
             name : 'dt_fluxo',
             type : 'date',
-            dateFormat:'Y-m-d'
+            dateFormat:'c'
         },
         {
             name : 'valor',
