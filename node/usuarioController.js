@@ -56,8 +56,8 @@ function login(req, res) {
     });
 }
 
-exports.login = login;
 exports.list = list;
 exports.create = create;
 exports.update = update;
 exports._delete = _delete;
+exports.login = login;
