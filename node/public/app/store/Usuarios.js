@@ -8,10 +8,10 @@ Ext.define('FM.store.Usuarios', {
 			simpleSortMode : true,
 			type           : 'ajax',
 			api            : {
-				read    : 'php/usuarios.php?acao=list',
-				create  : 'php/usuarios.php?acao=insert',
-				update  : 'php/usuarios.php?acao=update',
-				destroy : 'php/usuarios.php?acao=delete'
+				read    : 'usuarios/list',
+				create  : 'usuarios/create',
+				update  : 'usuarios/update',
+				destroy : 'usuarios/delete'
 			},
 		actionMethods : {
 				create : 'POST',
@@ -32,8 +32,7 @@ Ext.define('FM.store.Usuarios', {
 		},
 		extraParams :
 		{
-			limit : 'limit',
-			sort  : 'id',
+			sort  : '_id',
 			dir   : 'ASC',
 			total : 'total'
 		},

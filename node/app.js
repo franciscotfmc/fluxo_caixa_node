@@ -28,7 +28,9 @@ app.get('/principal.html', function (req, res, next) {
 });
 
 app.use(express.static(__dirname + '/public'));
+
 app.post('/login', usuarioController.login);
+app.post('/usuarios/list', usuarioController.list);
 
 app.listen(8000);
 util.log('Server started');
