@@ -33,7 +33,7 @@ app.post('/login', usuarioController.login);
 app.post('/usuarios/list', usuarioController.list);
 app.post('/usuarios/create', usuarioController.create);
 app.post('/usuarios/update', usuarioController.update);
-app.post('/usuarios/delete', usuarioController.delete);
+app.post('/usuarios/delete', usuarioController._delete);
 
 app.listen(8000);
 util.log('Server started');

@@ -28,6 +28,23 @@ function update(req, res) {
     });
 }
 
+function _delete(req, res) {
+    var data = JSON.parse(req.body.data);
+    if (Object.prototype.toString.call(data) === '[object Array]') {
+        data.forEach(function (item) {
+            Usuario.findByIdAndRemove(item._id).exec();
+        });
+        res.json(200, {success: true, message: 'Registro excluido'});
+    }
+    else
+        Usuario.findByIdAndRemove(data._id, function (err) {
+            if (err)
+                res.json(200, {success: false, message: 'Erro ao excluir'});
+            else
+                res.json(200, {success: true, message: 'Registro excluido'});
+        });
+}
+
 function login(req, res) {
     Usuario.findOne({email: req.body.email, senha: req.body.senha}, function (err, usuario) {
         if (usuario !== null) {
@@ -43,3 +60,4 @@ exports.login = login;
 exports.list = list;
 exports.create = create;
 exports.update = update;
+exports._delete = _delete;
