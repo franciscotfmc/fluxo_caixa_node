@@ -1,8 +1,8 @@
 Ext.define('FM.model.Fluxo', {
         extend      : 'Ext.data.Model',
-        idProperty  : 'id',
+        idProperty  : '_id',
         fields :[{
-            name : 'id',
+            name : '_id',
             type : 'int'
         },
         {

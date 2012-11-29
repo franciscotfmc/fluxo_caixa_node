@@ -36,7 +36,7 @@ Ext.define('FM.view.fluxo.List' ,{
     ],
     columns: [
         Ext.create('Ext.grid.RowNumberer'),
-        {header: 'Código', dataIndex: 'id', flex: 1},
+        {header: 'Código', dataIndex: '_id', flex: 1},
         {
             header: 'Conta',
             dataIndex: 'conta_id',

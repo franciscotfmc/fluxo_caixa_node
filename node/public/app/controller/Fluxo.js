@@ -94,7 +94,7 @@ Ext.define('FM.controller.Fluxo', {
 
         var win         = button.up('window'),
             form        = win.down('form').getForm(),
-            id   = form.getRecord() ? form.getRecord().get('id') : 0;
+            _id   = form.getRecord() ? form.getRecord().get('_id') : 0;
 
         if (form.isValid())
         {
@@ -103,7 +103,7 @@ Ext.define('FM.controller.Fluxo', {
 
             if (record)
             {
-                if(record.data['id'])
+                if(record.data['_id'])
                 {
                     record.set(values);
                 }

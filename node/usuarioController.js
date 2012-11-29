@@ -1,13 +1,20 @@
 var Usuario = require('./models').Usuario,
     mongoose = require('mongoose');
 
-// function insert(response, postData) {
-//     var usuario = new Usuario({nome: });
-// }
-
 function list(req, res) {
     Usuario.find().sort(req.body.sort + ' ' + req.body.dir).skip(req.body.start).limit(req.body.limit).exec(function(err, usuarios) {
         res.json(200, {success: true, data: usuarios, inicio: req.body.start, total: Usuario.count()});
+    });
+}
+
+function create(req, res) {
+    var data = JSON.parse(req.body.data);
+    var usuario = new Usuario({nome: data.nome, email: data.email, senha: data.senha});
+    usuario.save(function (err, usuario) {
+        if (err)
+            res.json(200, {success: false, message: 'Erro ao salvar no banco de dados'});
+        else
+            res.json(200, {success: true, message: 'Registro salvo', data: usuario});
     });
 }
 
@@ -24,3 +31,4 @@ function login(req, res) {
 
 exports.login = login;
 exports.list = list;
+exports.create = create;

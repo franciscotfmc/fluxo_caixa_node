@@ -33,7 +33,7 @@ Ext.define('FM.store.Fluxos', {
         extraParams :
         {
             limit : 'limit',
-            sort  : 'id',
+            sort  : '_id',
             dir   : 'ASC',
             total : 'total'
         },

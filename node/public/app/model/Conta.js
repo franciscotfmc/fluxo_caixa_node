@@ -1,9 +1,9 @@
 Ext.define('FM.model.Conta', {
   extend		: 'Ext.data.Model',
-	idProperty  : 'id',
+	idProperty  : '_id',
     fields: [
       {
-          name: 'id'
+          name: '_id'
       },
 	    {
           name: 'conta_id'
@@ -13,7 +13,7 @@ Ext.define('FM.model.Conta', {
           type: 'string'
       },
       {
-          name: 'flag_tipo',
+          name: 'flag_tipo'
       }
     ]
 });

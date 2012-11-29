@@ -31,7 +31,7 @@ Ext.define('FM.store.Contas', {
             root			: 'data'
         },
 		extraParams: {
-            sort 	: 'id',
+            sort 	: '_id',
             dir 	: 'ASC'
 
         },

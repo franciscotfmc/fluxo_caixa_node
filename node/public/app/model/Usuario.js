@@ -1,9 +1,9 @@
 Ext.define('FM.model.Usuario', {
 		extend		: 'Ext.data.Model',
-		idProperty  : 'id',
+		idProperty  : '_id',
 		fields :[{
-			name : 'id',
-			type : 'int'
+			name : '_id',
+			type : 'string'
 		},
 		{
 			name : 'nome',

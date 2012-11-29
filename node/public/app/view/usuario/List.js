@@ -36,7 +36,7 @@ Ext.define('FM.view.usuario.List' ,{
     ],
     columns: [
         Ext.create('Ext.grid.RowNumberer'),
-        {header: 'Código'	,  dataIndex: 'id'	,  flex: 1},
+        {header: 'Código'	,  dataIndex: '_id'	,  flex: 1},
         {header: 'Nome'		,  dataIndex: 'nome'	,  flex: 1},
         {header: 'E-mail'	,  dataIndex: 'email'		,  flex: 1}
     ],

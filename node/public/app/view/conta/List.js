@@ -10,7 +10,7 @@ Ext.define('FM.view.conta.List' ,{
 
 		this.columns = [
         Ext.create('Ext.grid.RowNumberer'),
-		{header: 'Código',  dataIndex: 'id',  flex: 1}
+		{header: 'Código',  dataIndex: '_id',  flex: 1}
 		,
 		{
             header		: 'Conta Associada',
