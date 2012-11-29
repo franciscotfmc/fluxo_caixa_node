@@ -2,6 +2,7 @@ var express = require('express'),
     mongoose = require('mongoose'),
     mongoStore = require('connect-mongoose')(express),
     usuarioController = require('./usuarioController'),
+    contaController = require('./contaController'),
     util = require('util');
 
 mongoose.connect('mongodb://localhost/fluxo_caixa_node');
@@ -34,6 +35,8 @@ app.post('/usuarios/list', usuarioController.list);
 app.post('/usuarios/create', usuarioController.create);
 app.post('/usuarios/update', usuarioController.update);
 app.post('/usuarios/delete', usuarioController._delete);
+
+app.post('/contas/list', contaController.list);
 
 app.listen(8000);
 util.log('Server started');
