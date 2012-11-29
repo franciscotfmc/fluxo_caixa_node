@@ -34,6 +34,24 @@ function update(req, res) {
     });
 }
 
+function _delete(req, res) {
+    var data = JSON.parse(req.body.data);
+    if (Object.prototype.toString.call(data) === '[object Array]') {
+        data.forEach(function (item) {
+            Conta.findByIdAndRemove(item._id).exec();
+        });
+        res.json(200, {success: true, message: 'Registro excluido'});
+    }
+    else
+        Conta.findByIdAndRemove(data._id, function (err) {
+            if (err)
+                res.json(200, {success: false, message: 'Erro ao excluir'});
+            else
+                res.json(200, {success: true, message: 'Registro excluido'});
+        });
+}
+
 exports.list = list;
 exports.create = create;
 exports.update = update;
+exports._delete = _delete;
