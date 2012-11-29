@@ -18,6 +18,16 @@ function create(req, res) {
     });
 }
 
+function update(req, res) {
+    var data = JSON.parse(req.body.data);
+    Usuario.findByIdAndUpdate(data._id, {nome: data.nome, email: data.email, senha: data.senha}, function (err, usuario) {
+        if (err)
+            res.json(200, {success: false, message: 'Erro ao salvar no banco de dados'});
+        else
+            res.json(200, {success: true, message: 'Registro salvo', data: usuario});
+    });
+}
+
 function login(req, res) {
     Usuario.findOne({email: req.body.email, senha: req.body.senha}, function (err, usuario) {
         if (usuario !== null) {
@@ -32,3 +42,4 @@ function login(req, res) {
 exports.login = login;
 exports.list = list;
 exports.create = create;
+exports.update = update;
