@@ -8,7 +8,7 @@ var Usuario = require('./models').Usuario,
 function login(req, res) {
     Usuario.findOne({email: req.body.email, senha: req.body.senha}, function (err, usuario) {
         if (usuario !== null) {
-            // Criar sessão
+            req.session.usuario = usuario._id;
             res.json(200, {success: true});
         }
         else
