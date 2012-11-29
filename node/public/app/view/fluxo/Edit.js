@@ -1,28 +1,14 @@
+Ext.require(['FM.view.AbstractForm']);
+Ext.require(['FM.view.AbstractWindow']);
 Ext.require(['FM.view.conta.Combo']);
 
 Ext.define('FM.view.fluxo.Edit', {
-    extend      : 'Ext.window.Window',
-    alias       : 'widget.fluxoEdit',
-    title       : 'Edição de fluxo',
-    layout      : 'fit',
-    autoShow    : true,
-    modal       : true,
+    extend: 'FM.view.AbstractWindow',
+    alias : 'widget.fluxoEdit',
+    title : 'Edição de Fluxo',
     initComponent: function() {
         this.items = [{
-            xtype           : 'form',
-            style           : 'background-color: #fff;',
-            fieldDefaults   : {
-                anchor          : '100%',
-                labelAlign      : 'left',
-                labelWidth      : 150,
-                allowBlank      : false,
-                combineErrors   : false,
-                msgTarget       : 'side'
-            },
-            defaultType         : 'textfield',
-            defaults            : {
-                            anchor: '100%'
-            },
+            xtype           : 'abstractform',
             items   : [
             {
                 xtype       : 'contaCombo'
@@ -57,19 +43,6 @@ Ext.define('FM.view.fluxo.Edit', {
 
             }
         ];
-
-        this.buttons = [{
-            text    : 'Salvar',
-            action  : 'save',
-            iconCls : 'save'
-        },
-        {
-            text    : 'Cancelar',
-            scope   : this,
-            iconCls : 'cancel',
-            handler : this.close
-        }];
-
         this.callParent(arguments);
     }
 });
