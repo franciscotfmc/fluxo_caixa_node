@@ -8,7 +8,7 @@ Ext.define('FM.view.Viewport', {
         xtype: 'box',
         id: 'header',
         region: 'north',
-        html: '<h1>Sistema de Fluxo de Caixa - FM 1.0 - <a id="logout" href="php/logout.php">Logout</a> </h1>',
+        html: '<h1>Sistema de Fluxo de Caixa - FM 1.0 - <a id="logout" href="logout">Logout</a> </h1>',
         height: 45
     },
     {

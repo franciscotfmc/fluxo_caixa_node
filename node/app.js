@@ -32,6 +32,7 @@ app.get('/principal.html', function (req, res, next) {
 app.use(express.static(__dirname + '/public'));
 
 app.post('/login', usuarioController.login);
+app.get('/logout', usuarioController.logout);
 app.post('/usuarios/list', usuarioController.list);
 app.post('/usuarios/create', usuarioController.create);
 app.post('/usuarios/update', usuarioController.update);

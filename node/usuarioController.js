@@ -56,8 +56,15 @@ function login(req, res) {
     });
 }
 
+function logout(req, res) {
+    req.session.destroy(function (err){
+        res.redirect('/');
+    });
+}
+
 exports.list = list;
 exports.create = create;
 exports.update = update;
 exports._delete = _delete;
 exports.login = login;
+exports.logout = logout;
