@@ -25,13 +25,25 @@ function create(req, res) {
 
 function update(req, res) {
     var data = JSON.parse(req.body.data);
-    Conta.findByIdAndUpdate(data._id, {nome: data.nome, flag_tipo: data.flag_tipo}, function (err, conta) {
+    var conta = Conta.findById(data._id, function (err, conta) {
         if (err) {
-            res.json(200, {success: false, message: 'Erro ao salvar no banco de dados'});
+            res.json(200, {success: false, message: 'Erro ao obter registro'});
             console.log(err);
         }
-        else
-            res.json(200, {success: true, message: 'Registro salvo', data: conta});
+        else {
+            conta.nome = data.nome;
+            conta.flag_tipo = data.flag_tipo;
+            if (data.conta_id != false)
+                conta.conta_id = data.conta_id;
+            conta.save(function (err, conta) {
+                if (err) {
+                    res.json(200, {success: false, message: 'Erro ao salvar no banco de dados'});
+                    console.log(err);
+                }
+                else
+                    res.json(200, {success: true, message: 'Registro salvo', data: conta});
+            });
+        }
     });
 }
 
