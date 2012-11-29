@@ -120,14 +120,14 @@ Ext.define('FM.controller.Conta', {
 
         var win     	= button.up('window'),
             form    	= win.down('form').getForm(),
-            id	= form.getRecord() ? form.getRecord().get('id') : 0;
+            _id	= form.getRecord() ? form.getRecord().get('_id') : 0;
 
         if (form.isValid()) {
             var record = form.getRecord(),
                 values = form.getValues();
             if (record)
             {
-                if(record.data['id'])
+                if(record.data['_id'])
                 {
                     record.set(values);
                 }
