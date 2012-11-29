@@ -1,4 +1,5 @@
 var Conta = require('./models').Conta,
+    Fluxo = require('./models').Fluxo,
     mongoose = require('mongoose');
 
 function list(req, res) {
@@ -51,7 +52,23 @@ function _delete(req, res) {
         });
 }
 
+function grafico(req, res) {
+    Conta.find().sort({nome: 'asc'}).exec(function (err, contas) {
+        var resultado = [];
+        contas.forEach(function (item, index, array) {
+            var obj = {conta: item.nome};
+            Fluxo.count({conta_id: item._id}, function (err, count) {
+                obj.total = count;
+                resultado.push(obj);
+                if (index === array.length - 1)
+                    res.json(200, resultado);
+            });
+        });
+    });
+}
+
 exports.list = list;
 exports.create = create;
 exports.update = update;
 exports._delete = _delete;
+exports.grafico = grafico;

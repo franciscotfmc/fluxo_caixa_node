@@ -5,7 +5,7 @@ Ext.define('FM.store.GraficoFluxoContas', {
     remoteSort	: false,
     proxy: {
         type: 'ajax',
-        url: 'php/graficoContas.php?acao=grafico',
+        url: 'contas/grafico',
         reader: {
             type			: 'json',
             root			: 'data',

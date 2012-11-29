@@ -41,6 +41,7 @@ app.post('/contas/list', contaController.list);
 app.post('/contas/create', contaController.create);
 app.post('/contas/update', contaController.update);
 app.post('/contas/delete', contaController._delete);
+app.get('/contas/grafico', contaController.grafico);
 
 app.post('/fluxos/list', fluxoController.list);
 app.post('/fluxos/create', fluxoController.create);
