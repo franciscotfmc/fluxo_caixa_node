@@ -7,4 +7,20 @@ function list(req, res) {
     });
 }
 
+function create(req, res) {
+    var data = JSON.parse(req.body.data);
+    var conta = Conta({nome: data.nome, flag_tipo: data.flag_tipo});
+    if (data.conta_id != false)
+        conta.conta_id = data.conta_id;
+    conta.save(function(err, conta) {
+        if (err) {
+            res.json(200, {success: false, message: 'Erro ao salvar no banco de dados'});
+            console.log(err);
+        }
+        else
+            res.json(200, {success: true, message: 'Registro salvo', data: conta});
+    });
+}
+
 exports.list = list;
+exports.create = create;

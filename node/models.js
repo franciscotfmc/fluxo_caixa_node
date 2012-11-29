@@ -4,7 +4,7 @@ var ContaSchema = new mongoose.Schema({
   id        : mongoose.Schema.ObjectId,
   conta_id  : mongoose.Schema.ObjectId,
   nome      : String,
-  flag      : Number
+  flag_tipo : Number
 });
 
 var FluxoSchema = new mongoose.Schema({

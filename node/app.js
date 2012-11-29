@@ -37,6 +37,9 @@ app.post('/usuarios/update', usuarioController.update);
 app.post('/usuarios/delete', usuarioController._delete);
 
 app.post('/contas/list', contaController.list);
+app.post('/contas/create', contaController.create);
+app.post('/contas/update', contaController.update);
+app.post('/contas/delete', contaController._delete);
 
 app.listen(8000);
 util.log('Server started');

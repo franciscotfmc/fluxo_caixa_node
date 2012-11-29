@@ -17,7 +17,7 @@ Ext.define('FM.view.conta.List' ,{
             dataIndex	: 'conta_id',
             flex		: 1,
             renderer    : function (value) {
-                var record = this.getStore().findRecord('id', value);
+                var record = this.getStore().findRecord('_id', value);
                 if (record !== null)
                     return record.get('nome');
                 return '';
@@ -30,9 +30,9 @@ Ext.define('FM.view.conta.List' ,{
             dataIndex: 'flag_tipo',
             flex: 1,
             renderer: function (value) {
-                if (value === '0')
+                if (value == '0')
                     return 'Entrada';
-                if (value === '1')
+                if (value == '1')
                     return 'Saída';
                 return '';
             }
